@@ -6,7 +6,7 @@
 \usepackage{hyperref}
 \usepackage{cite}
 %\usepackage{times}
-\usepackage[backend=bibtex, sorting=none]{biblatex} %bibtex or biber
+\usepackage[backend=bibtex, sorting=none, maxnames=10,minnames=10]{biblatex} %bibtex or biber
 \addbibresource{literature.bib}
 
 \usepackage{fancyhdr}
@@ -16,9 +16,10 @@
     \renewcommand{\thepage}{\ifnum\value{page}<10 0\fi\arabic{page}}
     \renewcommand{\headrulewidth}{0pt} % Remove header line
 }
+
 \pagestyle{plain}
 
-\title{The Use of Deep Learning for Personalized Recommendations in Video Streaming Services\thanks{Semester project in the subject Engineering Methods, academic year 2024/2025, supervisor: Pavol Baťalík}}
+\title{Deep Learning in Video Streaming Services\thanks{Semester project in the subject Engineering Methods, academic year 2024/2025, supervisor: Pavol Baťalík}}
 
 \author{Arseniy Malyuk\\[2pt]
 	{\small Slovak University of Technology in Bratislava}\\
@@ -32,41 +33,89 @@
 \maketitle
 
 \begin{abstract}
-    The purpose of this article is to explore how video streaming services such as Netflix\footnote{Netflix: \url{https://netflix.com}}, Amazon Prime\footnote{Amazon Prime: \url{https://www.amazon.com/amazonprime}}, Disney+\footnote{Disney+: \url{https://www.disneyplus.com}}, etc. implement deep learning for personalized recommendations. The main area of focus here will be evaluation of deep learning approaches for analyzing large quantities of user data such as activity logs and preferences. We will explore how such algorithms are used for generation of accurate recommendations, increasing user satisfaction or even improving viewing rates. We will also consider using NLP and video content analysis methods for recommendation improvement. In particular, we would like to know how various streaming services operate and implement deep learning for assessing users’ interaction activities with the content such as views, ratings, comments, etc. This will allow us to see the personalized recommendations that create based on users’ interests and the information they already have. Towards this, we will look at some practical aspects of the deep learning application in recommender systems and evaluate the performance. This will guide us on how best such solutions can be put to use in practice and the possible limitations that might be encountered. At the end, we will discuss how improvement in these methods affects the quality and effectiveness of the streaming services. The main source of inspiration for this topic was the article ‘An overview of video recommender systems: state-of-the-art and research issues’\cite{SAM-Overview} by Sebastian Lubos, Alexander Felfernig, and Markus Tautschnig. This article provides a comprehensive overview of current algorithms and methods in the field of video recommendation.
+    The purpose of this article is to explore how video streaming services such as Netflix\footnote{Netflix: \url{https://netflix.com}}, Amazon Prime Video\footnote{Amazon Prime Video: \url{https://www.primevideo.com}}, Disney+\footnote{Disney+: \url{https://www.disneyplus.com}}, etc. implement deep learning for personalized recommendations. The main area of focus here will be evaluation of deep learning approaches for analyzing large quantities of user data such as activity logs and preferences. We will explore how such algorithms are used for generation of accurate recommendations, increasing user satisfaction or even improving viewing rates. We will also consider using NLP and video content analysis methods for recommendation improvement. In particular, we would like to know how various streaming services operate and implement deep learning for assessing users’ interaction activities with the content such as views, ratings, comments, etc. This will allow us to see the personalized recommendations that create based on users’ interests and the information they already have. Towards this, we will look at some practical aspects of the deep learning application in recommender systems and evaluate the performance. This will guide us on how best such solutions can be put to use in practice and the possible limitations that might be encountered. At the end, we will discuss how improvement in these methods affects the quality and effectiveness of the streaming services. The main source of inspiration for this topic was the article ‘An overview of video recommender systems: state-of-the-art and research issues’\cite{Lubos2023} by Sebastian Lubos, Alexander Felfernig, and Markus Tautschnig. This article provides a comprehensive overview of current algorithms and methods in the field of video recommendation.
 \end{abstract}
 
-\section{Introduction}
+\newpage
+
+\section{Introduction} 
+\label{sec:introduction}
+\hspace*{2em}Each year, television is becoming less and less popular and the initiative of content consumption is shifting to video streaming services such as Netflix, Amazon Prime Video, Disney+, etc., where you do not need to switch between channels to find what you like, but simply go to the “Recommended” section. But how exactly do recommendations work and how can they “predict” user preferences? This seems to be a magical ability, but it is actually the result of sophisticated algorithms and deep learning models that are able to analyse and learn from massive amounts of data. It is thanks to deep learning that these systems are able to accurately predict what users would like and provide unique content for each of them.
+
+Deep learning opens up opportunities to categorise users based on their previous activity (likes, comments, shares, etc.). By detecting certain patterns, machine learning models can predict the type of content that a user is likely to view in the future.
+
+However, the history of user activity is not the only thing that forms the basis for final recommendations. Natural language processing (NLP) and video analysis are other important tools for creating personalised recommendations. NLP is used specifically to analyse the text itself, which can be found in comments, reviews, search queries, etc. This is done to help the system better understand emotions and context. On the other hand, video analysis includes the study of genres, themes, and even visual elements, which helps to better understand user preferences.
+
+Therefore, recommendation systems based on deep learning are an irreplaceable tool when it comes to analysing and predicting user preferences. However, the principle of deep learning in video streaming services is too extensive to be described in just a few sentences. For this reason, the next section will take a closer look at how deep learning is used in these platforms.
 
 \section{Deep Learning in Streaming Services}
-\subsection{Implementation of Deep Learning}
-\subsection{Streaming Platforms}
+\label{sec:deep_learning}
 
-\section{Evaluation of Deep Learning Approaches}
-\subsection{User Data Analysis}
-\subsection{Recommendation Accuracy}
-\subsection{User Satisfaction}
+\subsection{Types of Recommendation Systems}
+\label{sec:types_recommendation}
+\subsubsection{Content-Based Recommendation}
+\label{sec:content_based}
+\subsubsection{Collaborative Filtering}
+\label{sec:collaborative_filtering}
+\subsubsection{Hybrid Recommendation}
+\label{sec:hybrid_recommendation}
+\subsubsection{Group Recommendation}
+\label{sec:group_recommendation}
+
+\subsection{Implementation of Deep Learning}
+\label{sec:implementation}
+\begin{itemize}
+    \item Neural networks and algorithms
+    \item Case study: Netflix's recommendation system
+\end{itemize}
+
+\subsection{Evaluation of Deep Learning Approaches}
+\label{sec:evaluation}
+\begin{itemize}
+    \item Analyzing user data
+    \item Metrics for recommendation accuracy
+    \item Assessing user satisfaction
+\end{itemize}
 
 \section{NLP and Video Content Analysis}
+\label{sec:nlp_video_analysis}
+
 \subsection{NLP Techniques}
+\label{sec:nlp_techniques}
+\begin{itemize}
+    \item Sentiment analysis from user comments and reviews
+\end{itemize}
+
 \subsection{Video Content Analysis}
+\label{sec:video_analysis}
+\begin{itemize}
+    \item Analyzing genres, themes, and visual elements
+    \item Object detection and scene recognition
+\end{itemize}
 
 \section{Practical Applications and Performance}
+\label{sec:practical_applications}
+
 \subsection{Operational Assessment}
+\label{sec:operational_assessment}
+
 \subsection{Performance Evaluation}
+\label{sec:performance_evaluation}
 
 \section{Conclusion}
+\label{sec:conclusion}
 
-\section{Cites}
-\cite{HLEDYJ-DeepLearning}
-\cite{CN-RecSystem}
-\cite{SNRJ-Movie}
-\cite{PKSAA-Summarization}
-\cite{NMY-Reinforcement}
-\cite{RSN-Network}
-\cite{YY-Multimodal}
-\cite{CMF-Hybrid}
-\cite{PHPAH-NLP}
-\cite{SSSDD-Integration}
+\section{Citations} \label{sec:citations}
+\cite{Steck20217}
+\cite{Mu2023}
+\cite{Dang2021}
+\cite{Peng2024}
+\cite{Gomez-Uribe2015}
+\cite{Jayalakshmi2022}
+\cite{Saini202312347}
+\cite{Hande2023}
+\cite{Souane2023}
+\cite{Lee2022}
 
 \newpage
 
