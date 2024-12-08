@@ -5,8 +5,10 @@
 \usepackage{graphicx} % Required for inserting images
 \usepackage[utf8]{inputenc}
 \usepackage{url}
-\usepackage{hyperref}
+\usepackage{hyperref} 
 \usepackage{csquotes}
+\usepackage{amsmath}
+\usepackage{wrapfig}
 %\usepackage{cite}
 %\usepackage{times}
 \usepackage[backend=biber, sorting=none, maxnames=10,minnames=10]{biblatex} %bibtex or biber
@@ -29,7 +31,7 @@
 	{\small Faculty of Informatics and Information Technologies}\\
 	{\small \texttt{xmalyuk@stuba.sk}}
 	}
-\date{\small November 2024}
+\date{\small December 2024}
 
 \begin{document}
 
@@ -55,16 +57,16 @@ Therefore, recommendation systems based on deep learning are an irreplaceable to
 
 \section{Types of Recommendation Systems}
 
-\hspace*{2em}Streaming platforms use various types of recommendation systems, each designed to capture different aspects of user preference. The major categories include content-based systems, collaborative filtering, hybrid approaches and group recommendations. Branching of these types of recommender systems displayed in the figure \ref{fig:Types}
-
-\begin{figure}[ht]
-    \centering
-    \includegraphics[width=0.7\textwidth]{Types_of_RS.pdf}
-    \caption{Branching of Recommender System Types}
+\begin{wrapfigure}{r}{0.5\textwidth}  % 'r' for right alignment, adjust width accordingly
+    \vspace{-1.5em}  % Move the image up
+    \includegraphics[width=0.5\textwidth]{Figures/Types_of_RS.png}
+    \caption{Branching of RS Types}
     \label{fig:Types}
-\end{figure}
+\end{wrapfigure}
 
-\newpage
+\hspace*{2em}Streaming platforms employ various types of recommendation systems, each designed to capture different aspects of user preferences and deliver personalized content. The major categories of these systems include content-based systems, collaborative filtering, hybrid approaches, and group recommendations. These methods are tailored to optimize user engagement by leveraging distinct data sources and algorithms. The branching of these types of recommender systems is displayed in the Figure \ref{fig:Types}
+
+\clearpage
 
 \subsection{Content-Based Recommendation}
 
@@ -97,16 +99,29 @@ Collaborative filtering, which leverages the preferences of a large user base, i
 \hspace*{2em}Deep learning models, particularly Convolutional Neural Networks (CNNs) and Recurrent Neural Networks (RNNs) are instrumental in powering recommendation systems used by streaming services.
 
 \begin{itemize}
-    \item \textbf{CNNs} are especially effective at processing visual and video data, enabling the extraction of relevant features from images and scenes. This capability is vital for understanding the visual elements of content, which can inform more accurate recommendations \cite{Hande2023,Alzubaidi2021}.
+    \item \textbf{CNNs} are especially effective at processing visual and video data, enabling the extraction of relevant features from images and scenes. This capability is vital for understanding the visual elements of content, which can inform more accurate recommendations \cite{Hande2023,Alzubaidi2021}. The functionality of CNNs is based on a structured hierarchy of layers. The Convolutional layer applies filters to the input image, identifying and extracting essential features such as edges or textures. Following this, the Pooling layer reduces the spatial dimensions of the data, optimizing computational efficiency while retaining critical information. Finally, the Dense layer aggregates the extracted features to generate the final prediction.
 
-    \item \textbf{RNNs} are adept at handling sequential data, such as the patterns in user viewing habits over time. By analyzing how a viewer's preferences evolve, RNNs contribute to the creation of dynamic user profiles that reflect shifting tastes \cite{Alzubaidi2021}.
+    \begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.8\textwidth]{Figures/CNN.png}
+    \caption{Simple CNN Architecture}
+    \label{fig:CNN}
+    \end{figure}
+
+    \item \textbf{RNNs} are adept at handling sequential data, such as the patterns in user viewing habits over time. By analyzing how a viewer's preferences evolve, RNNs contribute to the creation of dynamic user profiles that reflect shifting tastes \cite{Alzubaidi2021}. In an RNN, the key component is the Recurrent Hidden layer. It processes the input at each time step while maintaining a hidden state that carries information from earlier steps. This hidden state is updated with each new input, effectively creating a memory that reflects the sequence's context.
+
+    \begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.5\textwidth]{Figures/RNN.png}
+    \caption{Simple RNN Architecture}
+    \label{fig:RNN}
+    \end{figure}
 
 \end{itemize}
-Netflix, for example, uses variational autoencoders and multi-head attention mechanisms to dynamically adapt recommendations based on context, such as the user’s device or time of day \cite{Gomez-Uribe2015,Jayalakshmi2022}.
 
 \subsection{Netflix’s Recommendation System}
 
-\hspace*{2em}Netflix’s recommendation system is one of the most advanced in the industry, blending various deep learning techniques to deliver highly personalized content. By analyzing user data in real time, Netflix’s algorithms adjust recommendations based on recent behavior, providing contextually relevant content that changes with individual viewing habits. This adaptability is a core strength of deep learning in the streaming industry, allowing for real-time, personalized engagement \cite{Steck20217,Gomez-Uribe2015}.
+\hspace*{2em}Netflix’s recommendation system is one of the most advanced in the industry, blending various deep learning techniques, such as variational autoencoders and multi-head attention mechanisms, to deliver highly personalized content. By analyzing user data in real time, Netflix’s algorithms adjust recommendations based on recent behavior and contextual factors, such as the user’s device or time of day. These advanced techniques allow the system to adapt its suggestions dynamically, ensuring that the content remains contextually relevant and tailored to individual viewing habits. This adaptability is a core strength of deep learning in the streaming industry, enabling real-time, personalized engagement that evolves with the user’s preferences \cite{Steck20217,Gomez-Uribe2015,Jayalakshmi2022}.
 
 \section{Evaluation of Deep Learning Approaches}
 
@@ -114,31 +129,93 @@ Netflix, for example, uses variational autoencoders and multi-head attention mec
 
 \subsection{Accuracy of Recommendations}
 
-\hspace*{2em}To assess the accuracy of recommendations, streaming platforms typically rely on precision, recall, and F1 scores:
+\hspace*{2em}To assess the accuracy of recommendations, streaming platforms typically rely on Precision, Recall, and F$_{1}$ scores:
 
 \begin{itemize}
     \item \textbf{Precision} measures the proportion of recommended content that users engage with, providing insight into the relevance of the suggestions \cite{Fayyaz20201}.
     
     \item \textbf{Recall} assesses the effectiveness of the system in delivering all relevant content to users, evaluating how well the algorithm captures user interests \cite{Fayyaz20201}.
     
-    \item The \textbf{F1 score} offers a comprehensive assessment by combining precision and recall into a single metric, allowing for a balanced evaluation of recommendation quality \cite{Fayyaz20201}.
+    \item The \textbf{F$_{1}$ Score} offers a comprehensive assessment by combining precision and recall into a single metric, allowing for a balanced evaluation of recommendation quality \cite{Fayyaz20201}.
 \end{itemize}
+
+\begin{wraptable}{r}{0.5\textwidth} % 'r' for right alignment, change the width as necessary
+\vspace{-1.5em}  % Move the image up
+\centering
+\renewcommand{\arraystretch}{3} % Adjust row height
+\setlength{\tabcolsep}{20pt} % Adjust column width
+\resizebox{0.5\textwidth}{!}{
+  \begin{tabular}{|c|c|}
+  \hline
+  \textbf{\Large Metric} & \textbf{\Large Formula} \\ 
+  \hline
+  \textbf{\Large Precision} & \Large \(\frac{a}{a + b}\) \\
+  \hline
+  \textbf{\Large Recall} & \Large \(\frac{a}{a + c}\) \\
+  \hline
+  \textbf{\Large F$_{1}$ Score} & \Large \(\frac{2 \times \text{Precision} \times \text{Recall}}{\text{Precision} + \text{Recall}}\) \\
+  \hline
+  \end{tabular}
+}
+\caption{Formulas of Precision, Recall, and F$_{1}$ Score}
+\label{tab:formulas}
+\end{wraptable}
+
+The formulas for these metrics are mathematically expressed as follows, where:
+\begin{itemize}
+    \item $a$: Number of correctly recommended items by the recommendation system.
+    \item $b$: Number of items that should have been recommended but were missed.
+    \item $c$: Number of incorrect items recommended by the system.
+\end{itemize}
+
+\clearpage
 
 \subsection{User Satisfaction}
 
-\hspace*{2em}To evaluate user satisfaction, platforms track engagement metrics such as retention rates and content engagement. These metrics help streaming platforms fine-tune their models, ensuring that recommendations remain relevant and meaningful over time. User satisfaction data is invaluable for updating algorithms to reflect changing viewer preferences \cite{Souane2023}.
+\hspace*{2em}To evaluate user satisfaction, platforms track engagement metrics such as Retention Rate and Engagement Rate. These metrics help streaming platforms fine-tune their models, ensuring that recommendations remain relevant and meaningful over time. User satisfaction data is invaluable for updating algorithms to reflect changing viewer preferences \cite{Souane2023}.
 
-\section{NLP and Video Content Analysis}
+To quantify these metrics, are used the following formulas:
+\begin{itemize}
+    \item \textbf{Retention Rate} measures how well a platform retains its user base over time.
+    \item \textbf{Engagement Rate} evaluates the level of interaction users have with content relative to its visibility.
+\end{itemize}
 
-\subsection{NLP Techniques}
+\begin{table}[ht]
+\centering
+\renewcommand{\arraystretch}{3} % Adjust row height
+\setlength{\tabcolsep}{20pt} % Adjust column width
+\resizebox{0.7\textwidth}{!}{
+  \begin{tabular}{|c|c|}
+  \hline
+  \textbf{\Large Metric} & \textbf{\Large Formula} \\ 
+  \hline
+  \textbf{\Large Retention Rate} & \Large \(\frac{\text{Ending Customers} - \text{New Customers}}{\text{Beginning Customers}} \times 100\) \\
+  \hline
+  \textbf{\Large Engagement Rate} & \Large \(\frac{\text{Total Engagements}}{\text{Total Impressions}} \times 100\) \\
+  \hline
+  \end{tabular}
+}
+\caption{Formulas of Retention Rate and Engagement Rate}
+\label{tab:engagement-retention}
+\end{table}
+
+\section{NLP and VCA}
+
+\subsection{Natural Language Processing}
 
 \hspace*{2em}Natural Language Processing (NLP) interprets user-generated text, such as reviews, comments, search terms etc. Using sentiment analysis and topic modeling, NLP helps systems understand not only what users are watching, but how they feel about it. Sentiment analysis classifies text as positive, neutral or negative, while topic modeling categorizes comments by theme, allowing platforms to refine recommendations, based on emotional tone and specific interests \cite{Hande2023,Saini202312347}.
 
 \subsection{Video Content Analysis}
 
-\hspace*{2em}Video content analysis examines visual and thematic elements in video content, from genre to specific visual features. By analyzing patterns within video data, platforms can enhance recommendations with detailed content information, creating a refined viewing experience that aligns more closely with user preferences. For example, a viewer interested in "space" themes might be recommended other visually similar content \cite{Souane2023,Saini202312347}.
+\hspace*{2em}Video Content Analysis (VCA) examines visual and thematic elements in video content, from genre to specific visual features. By analyzing patterns within video data, platforms can enhance recommendations with detailed content information, creating a refined viewing experience that aligns more closely with user preferences. For example, a viewer interested in "space" themes might be recommended other visually similar content \cite{Souane2023,Saini202312347}.
 
-\section{Practical Applications and Performance}
+\subsection{Comparison of NLP and VCA Techniques}
+
+\hspace*{2em}NLP techniques effectively analyze textual inputs, such as reviews and comments, to understand user sentiment and preferences, enabling personalized recommendations. However, they rely on user-generated text and may struggle with linguistic nuances.
+
+VCA techniques, on the other hand, analyze video data directly, identifying visual and thematic patterns, such as genre or motifs, making them ideal when textual data is unavailable. However, they require significant computational resources and do not capture user sentiment.
+
+Overall, NLP excels in sentiment analysis, while VCA is better suited for visual content matching. Combining both enhances recommendation systems.
 
 \section{Conclusion}
 
